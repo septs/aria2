@@ -765,6 +765,12 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
     handlers.push_back(op);
   }
   {
+    OptionHandler* op(new DefaultOptionHandler(
+        PREF_RPC_LISTEN_HOST, PREF_RPC_LISTEN_HOST));
+    op->addTag(TAG_RPC);
+    handlers.push_back(op);
+  }
+  {
     OptionHandler* op(new NumberOptionHandler(
         PREF_RPC_LISTEN_PORT, TEXT_RPC_LISTEN_PORT, "6800", 1024, UINT16_MAX));
     op->addTag(TAG_RPC);
